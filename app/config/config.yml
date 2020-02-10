@@ -76,7 +76,21 @@ sensio_framework_extra:
 fos_user:
   db_driver: orm # other valid values are 'mongodb' and 'couchdb'
   firewall_name: main
-  user_class: AppBundle\Entity\User
+  user_class: JardinBundle\Entity\User
   from_email:
     address: "ayoub.bousselmi@esprit.tn"
     sender_name: "Ayoub"
+  change_password:
+    form:
+      type: me_user_change_password
+
+  service:
+    mailer: fos_user.mailer.twig_swift
+  resetting:
+    email:
+      template:   'email/password_resetting.email.twig'
+
+  registration:
+    confirmation:
+      template:   '@FOSUser/Registration/email.txt.twig'
+      enabled: true

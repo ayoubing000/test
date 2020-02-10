@@ -1,9 +1,8 @@
 <?php
 
 namespace JardinBundle\Entity;
-use FOS\UserBundle\Model\User as BaseUser;
 
-use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as FosUser;
 
 /**
  * User
@@ -11,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="JardinBundle\Repository\UserRepository")
  */
-class User extends  BaseUser
+class User extends FosUser
 {
     /**
      * @var int
@@ -22,19 +21,37 @@ class User extends  BaseUser
      */
     protected $id;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
     public function __construct()
     {
         parent::__construct();
     }
+
+    /**
+     * Sets the email.
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->setUsername($email);
+
+        return parent::setEmail($email);
+    }
+
+    /**
+     * Set the canonical email.
+     *
+     * @param string $emailCanonical
+     * @return User
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $this->setUsernameCanonical($emailCanonical);
+
+        return parent::setEmailCanonical($emailCanonical);
+    }
+
+
 }
 
