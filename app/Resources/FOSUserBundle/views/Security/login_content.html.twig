@@ -1,96 +1,55 @@
-{% trans_default_domain 'FOSUserBundle' %}
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8"/>
-    <title>Login Page | Simple - Responsive Bootstrap 4 Admin Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Responsive bootstrap 4 admin template" name="description"/>
-    <meta content="Coderthemes" name="author"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
-    <!-- App css -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"
-          id="bootstrap-stylesheet"/>
-    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-stylesheet"/>
-
-</head>
-
+<html lang="zxx">
 <body>
+{{ include('base_user.html.twig') }}
+{% trans_default_domain 'FOSUserBundle' %}
 
-
-<div class="account-pages my-5 pt-5">
+<div id="breadcrumbs" class="section-block-wrapper">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="text-center mb-4 mt-3">
-                            <a href="">
-                                <span><img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="30"></span>
-                            </a>
-
-                        </div>
-                        <form action="{{ path("fos_user_security_check") }}" method="post" class="p-2">
-                            {% if csrf_token %}
-                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
-                            {% endif %}
-                            <div class="form-group">
-                                <label for="emailaddress">addresse Email</label>
-                                <input class="form-control" type="text" id="username" name="_username"
-                                       value="{{ last_username }}" required="required" placeholder="john@deo.com"
-                                       autocomplete="username"/>
-
-                            </div>
-                            <div class="form-group">
-                                <a href="/request" class="text-muted float-right">Forgot your password?</a>
-                                <label for="password">Password</label>
-                                <input class="form-control" type="password" id="password" name="_password"
-                                       placeholder="Enter your password" required="required"
-                                       autocomplete="current-password"/>
-
-                            </div>
-
-                            <div class="form-group mb-4 pb-3">
-                                <div class="custom-control custom-checkbox checkbox-primary">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-signin">
-                                    <label class="custom-control-label" for="checkbox-signin">Remember me</label>
-                                </div>
-                            </div>
-                            <div class="mb-3 text-center">
-                                <input class="btn btn-primary btn-block" type="submit" id="_submit" name="_submit"
-                                       value="{{ 'security.login.submit'|trans }}"/>
-
-                            </div>
-                        </form>
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-                <div class="row mt-4">
-                    <div class="col-sm-12 text-center">
-                        <p class="text-muted mb-0">Don't have an account? <a href="" class="text-dark ml-1"><b>Sign
-                                    Up</b></a></p>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Login</li>
+                </ol>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
-    <!-- end container -->
 </div>
-<!-- end page -->
-
-<!-- Vendor js -->
-<script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-
-<!-- App js -->
-<script src="{{ asset('assets/js/app.min.js') }}"></script>
-
+<section id="authorization_page" class="authorization_page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 dot">
+                <h2 class="section-title">Log In</h2>
+                <p class="section-description pb_20">Log in to your account<br>Don’t have an account yet? - <a href="reg.html">Register</a></p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form action="{{ path("fos_user_security_check") }}" method="post" class="p-2">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                    {% endif %}
+                    <div class="reg_box">
+                        <input value="{{ last_username }}"  id="username" name="_username"  type="text" placeholder="Your email" required="required">
+                        <input class="reg_pass" id="password" name="_password" type="password" placeholder="********" required="required">
+                    </div>
+                    <div class="reg_checkbox">
+                        <input type="checkbox" class="checkbox" id="checkbox" />
+                        <label for="checkbox"></label>
+                        <span>Remember Me</span>
+                    </div>
+                    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    <div class="forgot_pass">
+                        <a href="{{ path('fos_user_resetting_request') }}">I forgot my password</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{{ include('footer_user.html.twig') }}
 </body>
-
 </html>

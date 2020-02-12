@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('JardinBundle:Default:index.html.twig');
+        return $this->render('JardinBundle:dashboard:index.html.twig');
     }
 }

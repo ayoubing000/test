@@ -78,14 +78,22 @@ fos_user:
   firewall_name: main
   user_class: JardinBundle\Entity\User
   from_email:
-    address: "ons.bouguerra@esprit.tn"
-    sender_name: "ons"
+    address: "ayoub.bousselmi@esprit.tn"
+    sender_name: "Ayoub"
+
   change_password:
     form:
       type: me_user_change_password
 
+  profile:
+    form:
+      type:               FOS\UserBundle\Form\Type\ProfileFormType # or 'fos_user_profile' on Symfony < 2.8
+      name:               fos_user_profile_form
+      validation_groups:  [Profile, Default]
+
   service:
     mailer: fos_user.mailer.twig_swift
+
   resetting:
     email:
       template:   'email/password_resetting.email.twig'

@@ -1,7 +1,7 @@
 <?php
 
 namespace JardinBundle\Entity;
-
+use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as FosUser;
 use Doctrine\ORM\Mapping as ORM;
 

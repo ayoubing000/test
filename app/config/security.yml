@@ -9,6 +9,7 @@ security:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
         ROLE_CLIENT:    ROLE_USER
         #ROLE_PARENT:    ROLE_USER
+
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
