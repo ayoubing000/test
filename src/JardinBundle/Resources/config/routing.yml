@@ -1,3 +1,11 @@
 jardin_homepage:
     path:     /
     defaults: { _controller: JardinBundle:Default:index }
+
+user_home:
+    path:       /user-home
+    defaults:   {_controller: JardinBundle:Main:userHome }
+
+events_feature:
+    resource: "@JardinBundle/Resources/config/routing/events.yml"
+    prefix:   /dashboard/events

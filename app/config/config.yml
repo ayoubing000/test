@@ -78,8 +78,8 @@ fos_user:
   firewall_name: main
   user_class: JardinBundle\Entity\User
   from_email:
-    address: "ayoub.bousselmi@esprit.tn"
-    sender_name: "Ayoub"
+    address: "ons.bouguerra@esprit.tn"
+    sender_name: "ons"
   change_password:
     form:
       type: me_user_change_password

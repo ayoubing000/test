@@ -3,6 +3,7 @@
 namespace JardinBundle\Entity;
 
 use FOS\UserBundle\Model\User as FosUser;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User
