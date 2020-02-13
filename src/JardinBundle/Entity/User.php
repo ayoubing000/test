@@ -1,9 +1,9 @@
 <?php
 
 namespace JardinBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as FosUser;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User
@@ -22,10 +22,19 @@ class User extends FosUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="enfant",mappedBy="parent")
+     */
+
+    private $enfants;
+
+
     public function __construct()
     {
         parent::__construct();
+        $this->enfants=new ArrayCollection();
     }
+
 
     /**
      * Sets the email.
@@ -38,6 +47,38 @@ class User extends FosUser
         $this->setUsername($email);
 
         return parent::setEmail($email);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParen()
+    {
+        return $this->paren;
+    }
+
+    /**
+     * @param mixed $paren
+     */
+    public function setParen($paren)
+    {
+        $this->paren = $paren;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFactures()
+    {
+        return $this->factures;
+    }
+
+    /**
+     * @param mixed $factures
+     */
+    public function setFactures($factures)
+    {
+        $this->factures = $factures;
     }
 
     /**
