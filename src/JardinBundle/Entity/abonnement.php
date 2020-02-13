@@ -57,21 +57,11 @@ class abonnement
    private  $enfant;
 
     /**
-     * @return mixed
+     * @ORM\OneToMany(targetEntity="facture")
+     * @ORM\JoinColumn(name="fact_id",referencedColumnName="id")
      */
-    public function getParents()
-    {
-        return $this->parents;
-    }
 
-    /**
-     * @param mixed $parents
-     */
-    public function setParents($parents)
-    {
-        $this->parents = $parents;
-    }
-
+    private  $facture;
     /**
      * Get id
      *
@@ -177,5 +167,38 @@ class abonnement
     {
         return $this->description;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEnfant()
+    {
+        return $this->enfant;
+    }
+
+    /**
+     * @param mixed $enfant
+     */
+    public function setEnfant($enfant)
+    {
+        $this->enfant = $enfant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFacture()
+    {
+        return $this->facture;
+    }
+
+    /**
+     * @param mixed $facture
+     */
+    public function setFacture($facture)
+    {
+        $this->facture = $facture;
+    }
+    
 }
 

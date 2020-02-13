@@ -40,6 +40,7 @@ class facture
      * @ORM\JoinColumn(name="abn_id",referencedColumnName="id")
      */
     private $abonnment;
+
     /**
      * @var \DateTime
      *
@@ -129,5 +130,22 @@ class facture
     {
         return $this->dateCreation;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAbonnment()
+    {
+        return $this->abonnment;
+    }
+
+    /**
+     * @param mixed $abonnment
+     */
+    public function setAbonnment($abonnment)
+    {
+        $this->abonnment = $abonnment;
+    }
+
 }
 

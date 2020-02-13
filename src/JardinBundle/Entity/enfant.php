@@ -62,21 +62,6 @@ class enfant
      */
 
     private  $abonnment;
-    /**
-     * @return mixed
-     */
-    public function getAbonnments()
-    {
-        return $this->abonnment;
-    }
-
-    /**
-     * @param mixed $abonnments
-     */
-    public function setAbonnments($abonnments)
-    {
-        $this->abonnments = $abonnments;
-    }
 
     /**
      * Get id
@@ -207,5 +192,23 @@ class enfant
     {
         return $this->age;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAbonnment()
+    {
+        return $this->abonnment;
+    }
+
+    /**
+     * @param mixed $abonnment
+     */
+    public function setAbonnment($abonnment)
+    {
+        $this->abonnment = $abonnment;
+    }
+
+
 }
 
