@@ -36,10 +36,10 @@ class facture
     private $datePaiment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="abonnement" , inversedBy="factures")
-     * @ORM\JoinColumn(name="user_id",referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="abonnement")
+     * @ORM\JoinColumn(name="abn_id",referencedColumnName="id")
      */
-    private $parent;
+    private $abonnment;
     /**
      * @var \DateTime
      *
